@@ -48,10 +48,7 @@ class HomeNavBar extends Component {
       anchorEl: null
     });
   };
-  onClick = e =>{
-    e.preventDefault();
-    this.props.history.push("/login");
-  }
+  
 
   render() {
     const { classes } = this.props;
@@ -71,9 +68,10 @@ class HomeNavBar extends Component {
             <Typography variant="h6" className={classes.title}>
               <Link to="/" href="/" color='inherit' style={{textDecoration: "none"}}>Home</Link>
             </Typography>
-            {user.name.split(" ")[0]}
+            
             {this.props.auth.isAuthenticated && (
               <div>
+                {user.name.split(" ")[0]}
                 <IconButton
                   aria-label="account of current user"
                   aria-controls="menu-appbar"
@@ -107,24 +105,12 @@ class HomeNavBar extends Component {
              {!(this.props.auth.isAuthenticated) && (
               <div>
                
-                <Menu
-                  id="menu-appbar1"
-                  anchorEl={this.state.anchorEl}
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "right"
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: "top",
-                    horizontal: "right"
-                  }}
-                  open={Boolean(this.state.anchorEl)}
-                  onClose={this.handleClose}
-                >
-                 
-                  <MenuItem onClick={this.onClick}>Sign In</MenuItem>
-                </Menu>
+              
+               <Typography variant="h7" className={classes.title}>
+              <Link to="/login" href="/login" color='inherit' style={{textDecoration: "none"}}>Sign In</Link>
+            </Typography>
+            
+                
               </div>
             )}
           </Toolbar>

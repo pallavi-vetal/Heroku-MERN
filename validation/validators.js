@@ -48,3 +48,28 @@ module.exports.registerValidator = registerValidator= function validateRegisterI
     };
     
 }
+module.exports.feedbackValidator = feedbackValidator= function validateFeedbackInput(data){
+
+    const errors = {}
+    data.email = !(isEmpty(data.email)) ? data.email:"";
+    data.feedback = !isEmpty(data.feedback) ? data.feedback:"";
+    data.name = !(isEmpty(data.name)) ? data.name : "";
+    if(Validators.isEmpty(data.email)){
+        errors.email = "Email is required. Can't be empty!"
+    }
+    if(Validators.isEmpty(data.name)){
+        errors.name = "Name is required. Can't be empty!"
+    }
+    if(!Validators.isEmail(data.email)){
+        errors.email = "Email is invalid. Please provide valid email address!";
+    }
+
+    if(Validators.isEmpty(data.feedback)){
+        errors.feedback = "Please provide feedback!";
+    }
+    return {
+        errors:errors,
+        isValid:isEmpty(errors)
+    };
+    
+}

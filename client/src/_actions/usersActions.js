@@ -2,7 +2,7 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 
-import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "../_constants/authConst";
+import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING,FEEDBACK_LOADING,SUBMIT_FEEDBACK } from "../_constants/authConst";
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
@@ -66,4 +66,15 @@ export const logoutUser = () => dispatch => {
   setAuthToken(false);
   // Set current user to empty object {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}));
+};
+export const submitFeedback = (userData, history) => dispatch => {
+  axios
+    .post("/api/users/feedback", userData)
+    .then(res => console.log(res))
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    );
 };

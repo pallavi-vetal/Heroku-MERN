@@ -12,6 +12,8 @@ import { setCurrentUser, logoutUser } from "./_actions/usersActions";
 import jwt_decode from "jwt-decode";
 import RestaurantDetails from "./_components/RestaurantDetails";
 import 'mapbox-gl/dist/mapbox-gl.css';
+import Feedback from "./_components/Feedback";
+import About from "./_components/About";
 if (localStorage.jwtToken) {
   // Set auth token header auth
   const token = localStorage.jwtToken;
@@ -40,6 +42,8 @@ class App extends Component{
         <Route exact path="/" component={NavBar} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/about" component={About} />
+        <Route exact path="/feedback" component={Feedback} />
         <Switch>
           <PrivateRoute exact path="/home" component={Home} />
           <PrivateRoute  path="/restaurants/:id" component={RestaurantDetails} />

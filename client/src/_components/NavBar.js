@@ -162,7 +162,7 @@ export default function NavBar() {
                 <PersonAddIcon />
               </Link>
             </ListItemIcon>
-            <ListItemText primary="Sign In" />
+            <ListItemText primary="Sign Up" />
           </ListItem>
           <ListItem button key="Sign In">
             <ListItemIcon>
@@ -184,14 +184,41 @@ export default function NavBar() {
         </List>
         <Divider />
         <List>
-          {["About Us", "Contact Us"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InfoIcon /> : <PermContactCalendarIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+        <ListItem button key="About Us">
+            <ListItemIcon>
+              <Link
+                to="/about"
+                style={{
+                  width: "100px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px"
+                }}
+                className="btn btn-outline-primary "
+              >
+                <InfoIcon />
+              </Link>
+            </ListItemIcon>
+
+            <ListItemText primary="About Us" />
+          </ListItem>
+          <ListItem button key="Contact Us">
+            <ListItemIcon>
+              <Link
+                to="/feedback"
+                style={{
+                  width: "100px",
+                  borderRadius: "3px",
+                  letterSpacing: "1.5px"
+                }}
+                className="btn btn-outline-primary "
+              >
+                <PermContactCalendarIcon />
+              </Link>
+            </ListItemIcon>
+
+            <ListItemText primary="Contact Us" />
+          </ListItem>
+         
         </List>
       </Drawer>
       <main className={classes.content}>
