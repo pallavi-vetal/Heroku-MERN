@@ -8,7 +8,7 @@
     "server": "node server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "postbuild": "npm install --prefix client && npm run build --prefix client"
+    "build": "npm install --prefix client && npm run build --prefix client"
   },
   "author": "pallavi-vetal",
   "license": "ISC",
