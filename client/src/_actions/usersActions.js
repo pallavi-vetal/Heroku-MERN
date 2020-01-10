@@ -2,7 +2,7 @@ import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 
-import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING,FEEDBACK_LOADING,SUBMIT_FEEDBACK } from "../_constants/authConst";
+import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "../_constants/authConst";
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
